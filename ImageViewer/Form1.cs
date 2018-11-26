@@ -16,6 +16,7 @@ namespace ImageViewer
     {
         private string[] files;
         private string prevPath;
+        int prevRatio = 1;
 
         public Form1()
         {
@@ -31,6 +32,7 @@ namespace ImageViewer
                 }
             }
             Console.WriteLine(trackBar.TickStyle);
+            comboBox1.SelectedIndex = 0;
         }
 
         private void trackBar1_Scroll(object sender, EventArgs e)
@@ -91,6 +93,36 @@ namespace ImageViewer
         private string[] getImagesPath()
         {
             return Directory.GetFiles(Properties.Settings.Default.imagePath).Where(elem => Regex.IsMatch(elem, "(.jpg|.png|.bmp)$")).ToArray();
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+            int zoomRatio = int.Parse(comboBox1.Text)/100;
+
+            if(prevRatio < zoomRatio)
+            {
+                pictureBox1.Refresh();
+                Bitmap bmp = new Bitmap(
+                pictureBox1.Image,
+                pictureBox1.Image.Width * zoomRatio,
+                pictureBox1.Image.Height * zoomRatio);
+                pictureBox1.Image = bmp;
+                prevRatio = zoomRatio;
+            }
+            else
+            {
+                pictureBox1.Refresh();
+                double zp = (double)zoomRatio / (double)prevRatio;
+                Bitmap bmp = new Bitmap(
+                pictureBox1.Image,
+                (int)(pictureBox1.Image.Width * (zp)),
+                (int)(pictureBox1.Image.Height * (zp)));
+                pictureBox1.Image = bmp;
+                prevRatio = zoomRatio;
+               
+            }
+            
         }
     }
 }
