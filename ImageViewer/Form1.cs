@@ -30,6 +30,9 @@ namespace ImageViewer
                 {
                     Console.WriteLine(elem);
                 }
+                pictureBox1.Image = new Bitmap(files[0]);
+                trackBar.Minimum = 1;
+                trackBar.Maximum = files.Length;
             }
             Console.WriteLine(trackBar.TickStyle);
             comboBox1.SelectedIndex = 0;
@@ -52,8 +55,6 @@ namespace ImageViewer
 
         private void trackBar1_Scroll_1(object sender, EventArgs e)
         {
-            Console.WriteLine("Current Position: " + trackBar.Value);
-
             pictureBox1.Image = new Bitmap(files[trackBar.Value - 1]);
         }
 
