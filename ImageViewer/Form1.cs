@@ -29,6 +29,9 @@ namespace ImageViewer
                 {
                     Console.WriteLine(elem);
                 }
+                pictureBox1.Image = new Bitmap(files[0]);
+                trackBar.Minimum = 1;
+                trackBar.Maximum = files.Length;
             }
             Console.WriteLine(trackBar.TickStyle);
         }
@@ -51,7 +54,7 @@ namespace ImageViewer
         private void trackBar1_Scroll_1(object sender, EventArgs e)
         {
             Console.WriteLine("Current Position: " + trackBar.Value);
-
+            Console.WriteLine(files[trackBar.Value - 1]);
             pictureBox1.Image = new Bitmap(files[trackBar.Value - 1]);
         }
 
