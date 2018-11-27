@@ -103,7 +103,7 @@
             this.comboBox1.Size = new System.Drawing.Size(58, 20);
             this.comboBox1.TabIndex = 7;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            string[] s = {"100", "200", "400", "800", "1600" };
+            string[] s = {"100%", "200%", "400%", "800%", "1600%" };
             this.comboBox1.Items.AddRange(s);
             // 
             // Form1
@@ -127,6 +127,9 @@
             this.toolStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.SetStyle(System.Windows.Forms.ControlStyles.DoubleBuffer, true);
+            this.SetStyle(System.Windows.Forms.ControlStyles.UserPaint, true);
+            this.SetStyle(System.Windows.Forms.ControlStyles.AllPaintingInWmPaint, true);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
