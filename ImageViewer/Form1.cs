@@ -66,7 +66,7 @@ namespace ImageViewer
             pictureBox1.Hide();
             pictureBox1.Image = new Bitmap(files[trackBar.Value - 1]);
             pictureBox1.Show();
-            imageZoom(zoomRatio);
+            imageZoom();
             panel1.AutoScrollPosition = new Point(-coordinateX, -coordinateY);
         }
 
@@ -111,10 +111,10 @@ namespace ImageViewer
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             zoomRatio = int.Parse((comboBox1.Text).Replace("%", ""))/100;
-            imageZoom(zoomRatio);
+            imageZoom();
         }
 
-        private void imageZoom(int zoomRatio)
+        private void imageZoom()
         {
             if (prevRatio < zoomRatio)
             {
