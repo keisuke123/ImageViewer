@@ -116,16 +116,7 @@ namespace ImageViewer
 
         private void imageZoom()
         {
-            if (prevRatio < zoomRatio)
-            {
-                double zp = (double)zoomRatio / (double)prevRatio;
-                Bitmap bmp = new Bitmap(
-                pictureBox1.Image,
-                (int)(pictureBox1.Image.Width * zp),
-                (int)(pictureBox1.Image.Height * zp));
-                pictureBox1.Image = bmp;
-                prevRatio = zoomRatio;
-            }else if (prevRatio == zoomRatio)
+            if (prevRatio == zoomRatio)
             {
                 Bitmap bmp = new Bitmap(
                 pictureBox1.Image,
