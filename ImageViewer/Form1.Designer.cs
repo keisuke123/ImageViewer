@@ -127,9 +127,6 @@
             this.toolStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.SetStyle(System.Windows.Forms.ControlStyles.DoubleBuffer, true);
-            this.SetStyle(System.Windows.Forms.ControlStyles.UserPaint, true);
-            this.SetStyle(System.Windows.Forms.ControlStyles.AllPaintingInWmPaint, true);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
